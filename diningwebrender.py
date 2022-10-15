@@ -26,6 +26,8 @@ def main():
     # quotes = tree.xpath()
     # print("hey")
     print(type(tree))
+    for div in tree:
+        print(type(div.text_content()))
     """
     with open("htmltxt.txt", "w+") as f:
         f.write(var)
