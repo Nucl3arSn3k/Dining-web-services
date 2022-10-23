@@ -2,7 +2,7 @@ import requests
 from xml.etree import ElementTree as et
 from selenium import webdriver
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
-
+from bs4 import BeautifulSoup
 from lxml import html
 from selenium.webdriver.firefox.options import Options
 
@@ -19,19 +19,12 @@ def main():
     )
 
     # driver = webdriver.Firefox(options=optionsv2)
-    browser.get(url)
-    page_source = browser.page_source
+    browret = browser.get(url)
+    soup = BeautifulSoup(browret.content, "html.parser")
+    job0 = soup.find_all("div", class_="timepicker-stage")
 
-    tree = html.fromstring(page_source)
-    # quotes = tree.xpath()
-    # print("hey")
-    print(type(tree))
-    for div in tree:
-        print(type(div.text_content()))
-    """
     with open("htmltxt.txt", "w+") as f:
-        f.write(var)
-    """
+        f.write(job0)
 
 
 if __name__ == "__main__":
