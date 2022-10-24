@@ -20,11 +20,14 @@ def main():
 
     # driver = webdriver.Firefox(options=optionsv2)
     browret = browser.get(url)
-    soup = BeautifulSoup(browret.content, "html.parser")
-    job0 = soup.find_all("div", class_="timepicker-stage")
+    page_source = browser.page_source
+    soup = BeautifulSoup(page_source, "lxml")
+    job0 = soup.find(id="timepicker-stage")
 
-    with open("htmltxt.txt", "w+") as f:
-        f.write(job0)
+    print(job0)
+
+    with open("test.html", "w+") as f:
+        f.write(str(job0))
 
 
 if __name__ == "__main__":
