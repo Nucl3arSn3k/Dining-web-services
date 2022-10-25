@@ -1,3 +1,4 @@
+from fileinput import close
 import requests
 from xml.etree import ElementTree as et
 from selenium import webdriver
@@ -8,6 +9,22 @@ from selenium.webdriver.firefox.options import Options
 
 #
 def main():
+
+    f = open("test.html", "r")
+    index = f.read()
+    soup_2 = BeautifulSoup(index, "lxml")
+
+    S = soup_2.html
+
+    all_text = "".join(S.findAll(text=True)).encode("utf-8")
+    """
+    for tag in soup_2.find_all():
+        print(f"{tag.name}: {tag.text}")
+    """
+    print(str(all_text))
+
+
+def webscrape():
     optionsv2 = Options()
     optionsv2.add_argument("--headless")
     url = "https://dining.rochester.edu/menu-hours/"
@@ -24,7 +41,7 @@ def main():
     soup = BeautifulSoup(page_source, "lxml")
     job0 = soup.find(id="timepicker-stage")
 
-    print(job0)
+    # print(job0)
 
     with open("test.html", "w+") as f:
         f.write(str(job0))
