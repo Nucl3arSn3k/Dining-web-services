@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 from lxml import html
 from selenium.webdriver.firefox.options import Options
 import bleach
+import regex
 
 #
 def main():
@@ -17,18 +18,20 @@ def main():
 
     S = soup_2.html
 
-    all_text = "".join(S.findAll(text=True)).encode("utf-8")
+    # all_text = "".join(S.findAll(text=True)).encode("utf-8")
     """
     for tag in soup_2.find_all():
         print(f"{tag.name}: {tag.text}")
     """
     output_3 = bleach.clean(index, tags=[], attributes={}, styles=[], strip=True)
-    output = str(all_text)
+    # output = str(all_text)
+    resultString = regex.sub("^\s+$[\r\n]*", "", output_3)
+    # output_2 = output.join(output.splitlines())
+    print(resultString)
 
-    output_2 = output.join(output.splitlines())
-    print(output_3)
     with open("txtdump.txt", "w+") as f:
-        f.write(output_2)
+        f.write(resultString)
+
 
 
 def webscrape():
