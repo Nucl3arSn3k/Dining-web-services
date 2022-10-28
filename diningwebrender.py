@@ -6,12 +6,13 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from bs4 import BeautifulSoup
 from lxml import html
 from selenium.webdriver.firefox.options import Options
+import bleach
 
 #
 def main():
 
-    f = open("test.html", "r")
-    index = f.read()
+    a = open("test.html", "r")
+    index = a.read()
     soup_2 = BeautifulSoup(index, "lxml")
 
     S = soup_2.html
@@ -21,7 +22,13 @@ def main():
     for tag in soup_2.find_all():
         print(f"{tag.name}: {tag.text}")
     """
-    print(str(all_text))
+    output_3 = bleach.clean(index, tags=[], attributes={}, styles=[], strip=True)
+    output = str(all_text)
+
+    output_2 = output.join(output.splitlines())
+    print(output_3)
+    with open("txtdump.txt", "w+") as f:
+        f.write(output_2)
 
 
 def webscrape():
