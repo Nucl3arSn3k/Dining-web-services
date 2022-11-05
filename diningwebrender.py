@@ -8,10 +8,11 @@ from lxml import html
 from selenium.webdriver.firefox.options import Options
 import bleach
 import regex
+import os
 
 #
 def main():
-
+    # webscrape()
     a = open("test.html", "r")
     index = a.read()
     soup_2 = BeautifulSoup(index, "lxml")
@@ -27,11 +28,30 @@ def main():
     # output = str(all_text)
     resultString = regex.sub("^\s+$[\r\n]*", "", output_3)
     # output_2 = output.join(output.splitlines())
-    print(resultString)
+    # print(resultString)
 
     with open("txtdump.txt", "w+") as f:
         f.write(resultString)
 
+    with open("txtdump.txt", "r") as r, open("txtdumpv2.txt", "w+") as s:
+        for line in r:
+            if line.strip():
+                s.write(line)
+    os.remove("txtdump.txt")
+
+    contents = []
+
+    with open("txtdumpv2.txt", "r") as file:
+        for x in file:
+            x2 = x[:-1]
+            contents.append(x2)
+    contents = [x.strip(" ") for x in contents]
+    r = regex.compile("((1[0-2]|0?[1-9]):([0-5][0-9]) ?([AaPp][Mm]))")
+
+    new_contents = list(filter(r.match, contents))
+
+    print(new_contents)
+    # print(contents)
 
 
 def webscrape():
