@@ -49,9 +49,19 @@ def main():
     r = regex.compile("((1[0-2]|0?[1-9]):([0-5][0-9]) ?([AaPp][Mm]))")
 
     new_contents = list(filter(r.match, contents))
+    index_pos_list = []
+    i = 0
+    for index, x in enumerate(new_contents):
+        var_loc = get_index_positions(contents, new_contents[index])
+        index_pos_list.append(var_loc)
+        i += 1
 
-    print(new_contents)
+    # print(index_pos_list)
+    # print(new_contents)
     # print(contents)
+
+    for x in range(len(index_pos_list)):
+        print(isinstance(index_pos_list[x], list))
 
 
 def webscrape():
@@ -75,6 +85,23 @@ def webscrape():
 
     with open("test.html", "w+") as f:
         f.write(str(job0))
+
+
+def get_index_positions(list_of_elems, element):
+    """Returns the indexes of all occurrences of give element in
+    the list- listOfElements"""
+    index_pos_list = []
+    index_pos = 0
+    while True:
+        try:
+            # Search for item in list from indexPos to the end of list
+            index_pos = list_of_elems.index(element, index_pos)
+            # Add the index position in list
+            index_pos_list.append(index_pos)
+            index_pos += 1
+        except ValueError as e:
+            break
+    return index_pos_list
 
 
 if __name__ == "__main__":
