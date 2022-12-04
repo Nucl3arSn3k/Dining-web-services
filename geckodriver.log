@@ -403,3 +403,24 @@ WebDriver BiDi listening on ws://127.0.0.1:1565
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Skeletor\\AppData\\Local\\Temp\\rust_mozprofileztupY8\\search.json.mozlz4", (void 0)))
 DevTools listening on ws://127.0.0.1:1565/devtools/browser/516923fe-0548-4442-95e5-827725277679
+JavaScript error: , line 0: NotFoundError: Could not move source file(C:\Users\Skeletor\AppData\Local\Temp\rust_mozprofileztupY8\bookmarkbackups\bookmarks-2022-11-05.jsonlz4) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 108: Error: Could not get children of file(C:\Users\Skeletor\AppData\Local\Temp\rust_mozprofileztupY8\thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 108: Error: Could not get children of file(C:\Users\Skeletor\AppData\Local\Temp\rust_mozprofileztupY8\thumbnails) because it does not exist
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 108: Error: Could not get children of file(C:\Users\Skeletor\AppData\Local\Temp\rust_mozprofileztupY8\thumbnails) because it does not exist
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 108: Error: Could not get children of file(C:\Users\Skeletor\AppData\Local\Temp\rust_mozprofileztupY8\thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 108: Error: Could not get children of file(C:\Users\Skeletor\AppData\Local\Temp\rust_mozprofileztupY8\thumbnails) because it does not exist
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 108: Error: Could not get children of file(C:\Users\Skeletor\AppData\Local\Temp\rust_mozprofileztupY8\thumbnails) because it does not exist
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 108: Error: Could not get children of file(C:\Users\Skeletor\AppData\Local\Temp\rust_mozprofileztupY8\thumbnails) because it does not exist
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null
+JavaScript error: , line 0: uncaught exception: null

@@ -56,12 +56,19 @@ def main():
         index_pos_list.append(var_loc)
         i += 1
 
-    # print(index_pos_list)
-    # print(new_contents)
+    print(index_pos_list)
+    print(new_contents)
     # print(contents)
+    res = []
 
+    [res.append(x) for x in contents if x not in res]
+
+    print(res)
+
+    """
     for x in range(len(index_pos_list)):
         print(isinstance(index_pos_list[x], list))
+    """
 
 
 def webscrape():
