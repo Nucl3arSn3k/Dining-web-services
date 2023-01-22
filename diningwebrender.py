@@ -9,10 +9,11 @@ from selenium.webdriver.firefox.options import Options
 import bleach
 import regex
 import os
+from urlextract import URLExtract
 
 #
 def main():
-    # webscrape()
+    webscrape()
     a = open("test.html", "r")
     index = a.read()
     soup_2 = BeautifulSoup(index, "lxml")
@@ -63,12 +64,17 @@ def main():
 
     [res.append(x) for x in contents if x not in res]
 
+    del res[0]
     print(res)
 
     """
     for x in range(len(index_pos_list)):
         print(isinstance(index_pos_list[x], list))
     """
+    l = url_extraction()
+
+    del l[1]
+    #print(l)
 
 
 def webscrape():
@@ -92,6 +98,19 @@ def webscrape():
 
     with open("test.html", "w+") as f:
         f.write(str(job0))
+
+
+def url_extraction():
+    extractor = URLExtract()
+    a = open("test.html")
+
+    gfg = BeautifulSoup(a, features="lxml")
+    links = []
+
+    for link in gfg.findAll("a"):
+        links.append(link.get("href"))
+
+    return links
 
 
 def get_index_positions(list_of_elems, element):

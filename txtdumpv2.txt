@@ -1,10 +1,23 @@
-Danforth Dining Center
-Danforth Dining Center
-Breakfast
+Douglass Dining
+Douglass Dining Center
+Continental
 8:00 am -
+                    9:00 am
+Breakfast
+9:00 am -
                     10:30 am
 Brunch
 10:30 am -
+                    2:30 pm
+Dinner
+5:00 pm -
+                    8:00 pm
+Late Dinner
+8:00 pm -
+                    9:00 pm
+Kosher
+Brunch
+10:30 pm -
                     2:30 pm
 Dinner
 5:00 pm -
@@ -36,3 +49,13 @@ Rocky's Sub Shop
 All Day
 11:00 am -
                     11:00 pm
+Starbucks
+Starbucks
+Spring Standard Sunday
+9:00 am -
+                    12:00 am
+Hillside Market
+Hillside Market
+Spring Standard
+11:00 am -
+                    1:00 am
