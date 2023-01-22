@@ -74,7 +74,10 @@ def main():
     l = url_extraction()
 
     del l[1]
-    #print(l)
+    print(l)
+    a.close()
+
+    os.remove("test.html")
 
 
 def webscrape():
@@ -106,7 +109,7 @@ def url_extraction():
 
     gfg = BeautifulSoup(a, features="lxml")
     links = []
-
+    a.close()
     for link in gfg.findAll("a"):
         links.append(link.get("href"))
 
