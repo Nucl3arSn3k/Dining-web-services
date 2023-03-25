@@ -56,12 +56,14 @@ def main():
         for line in f:
             # remove any leading or trailing whitespace
             line = line.strip()
-            print(line)
+            print("input line" + line)
             # if the line contains the name of a dining center or location
-            if line.isupper():
+            if line[0].isupper():
                 # use the name as a key and create an empty dictionary as its value
                 key = line.replace(" ", "_")
+                print("isupper" + key)
                 menu[key] = {}
+
             # if the line contains a meal period
             elif " - " in line:
                 # split the line into start and end times and meal type
@@ -83,7 +85,7 @@ def main():
         json.dump(menu, x)
 
     a.close()
-    os.remove("test.html")
+    # os.remove("test.html")
 
 
 def webscrape():
