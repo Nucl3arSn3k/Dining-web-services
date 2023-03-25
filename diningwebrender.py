@@ -10,6 +10,9 @@ import bleach
 import regex
 import os
 from urlextract import URLExtract
+import json
+
+import re
 
 #
 def main():
@@ -17,7 +20,7 @@ def main():
     a = open("test.html", "r")
     index = a.read()
     soup_2 = BeautifulSoup(index, "lxml")
-
+    url_list = extract_urls_from_html("test.html")
     S = soup_2.html
 
     # all_text = "".join(S.findAll(text=True)).encode("utf-8")
@@ -46,37 +49,40 @@ def main():
         for x in file:
             x2 = x[:-1]
             contents.append(x2)
-    contents = [x.strip(" ") for x in contents]
-    r = regex.compile("((1[0-2]|0?[1-9]):([0-5][0-9]) ?([AaPp][Mm]))")
+    menu = {}
+    key = None
 
-    new_contents = list(filter(r.match, contents))
-    index_pos_list = []
-    i = 0
-    for index, x in enumerate(new_contents):
-        var_loc = get_index_positions(contents, new_contents[index])
-        index_pos_list.append(var_loc)
-        i += 1
+    with open("txtdumpv2.txt") as f:
+        for line in f:
+            # remove any leading or trailing whitespace
+            line = line.strip()
+            print(line)
+            # if the line contains the name of a dining center or location
+            if line.isupper():
+                # use the name as a key and create an empty dictionary as its value
+                key = line.replace(" ", "_")
+                menu[key] = {}
+            # if the line contains a meal period
+            elif " - " in line:
+                # split the line into start and end times and meal type
+                start_end, meal_type = line.split("    ")
+                start, end = start_end.split(" - ")
+                # add the start and end times as a dictionary to the current dining center's value
+                if key is not None and meal_type.strip() not in menu[key]:
+                    menu[key][meal_type.strip()] = []
+                menu[key][meal_type.strip()].append(
+                    {"start": start.strip(), "end": end.strip()}
+                )
+            # if the line contains a location or other attribute
+            elif key is not None:
+                # add the attribute to the current dining center's value
+                menu[key][line.replace(" ", "_")] = True
 
-    print(index_pos_list)
-    print(new_contents)
-    # print(contents)
-    res = []
+    print(menu)
+    with open("output.json", "w") as x:
+        json.dump(menu, x)
 
-    [res.append(x) for x in contents if x not in res]
-
-    del res[0]
-    print(res)
-
-    """
-    for x in range(len(index_pos_list)):
-        print(isinstance(index_pos_list[x], list))
-    """
-    l = url_extraction()
-
-    del l[1]
-    print(l)
     a.close()
-
     os.remove("test.html")
 
 
@@ -101,6 +107,7 @@ def webscrape():
 
     with open("test.html", "w+") as f:
         f.write(str(job0))
+    f.close()
 
 
 def url_extraction():
@@ -114,6 +121,16 @@ def url_extraction():
         links.append(link.get("href"))
 
     return links
+
+
+def extract_urls_from_html(html_file):
+    with open(html_file, "r") as f:
+        contents = f.read()
+
+    # Find all URLs using regular expressions
+    urls = re.findall("href=['\"]?([^'\" >]+)", contents)
+
+    return urls
 
 
 def get_index_positions(list_of_elems, element):
