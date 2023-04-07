@@ -1,1 +1,69 @@
-{"Danforth_Dining_Center": {}, "Breakfast": {"8:00_am_-": true, "10:30_am": true}, "Brunch": {"10:30_am_-": true, "2:00_pm": true}, "Dinner": {"5:00_pm_-": true, "9:00_pm": true}, "Eastman_Dining_Center": {}, "Late_Lunch": {"2:00_pm_-": true, "5:00_pm": true}, "Late_Dinner": {"9:00_pm_-": true, "12:00_am": true}, "Starbucks": {}, "Spring_Standard_Saturday": {"9:00_am_-": true, "1:00_am": true}}
+{
+    "Douglass_Dining": {},
+    "Douglass_Dining_Center": {},
+    "Continental": {
+        "7:00_am_-": true,
+        "8:00_am": true
+    },
+    "Breakfast": {
+        "8:00_am_-": true,
+        "10:30_am": true
+    },
+    "Lunch": {
+        "11:30_am_-": true,
+        "2:30_pm": true
+    },
+    "Late_Lunch": {
+        "2:30_pm_-": true,
+        "3:30_pm": true
+    },
+    "Dinner": {
+        "5:00_pm_-": true,
+        "8:00_pm": true
+    },
+    "Late_Dinner": {
+        "8:00_pm_-": true,
+        "9:00_pm": true
+    },
+    "Danforth_Dining_Center": {
+        "11:00_am_-": true,
+        "1:30_pm": true,
+        "7:00_pm": true
+    },
+    "Eastman_Dining_Center": {
+        "11:30_am": true,
+        "2:00_pm": true,
+        "2:00_pm_-": true,
+        "5:00_pm": true,
+        "9:00_pm_-": true,
+        "12:00_am": true
+    },
+    "The_Pit": {},
+    "All_Day": {
+        "10:30_am_-": true,
+        "11:00_pm": true
+    },
+    "Rocky's_Sub_Shop": {},
+    "Grab_&amp;_Go": {
+        "3:00_pm": true
+    },
+    "Starbucks": {},
+    "Spring_2022_R-F": {
+        "7:30_am_-": true,
+        "1:00_am": true
+    },
+    "Connections": {},
+    "Standard_M-Th": {},
+    "Peet's_Coffee_@_Wegmans_Hall": {},
+    "Standard_M-F": {},
+    "The_Brew_@_Simon_School": {
+        "9:30_am_-": true
+    },
+    "Hillside_Market": {},
+    "Spring_Standard": {
+        "2:00_am": true
+    },
+    "Faculty_Club": {},
+    "California_Rollin_II": {},
+    "Spring_Standard_M-F": {}
+}

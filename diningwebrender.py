@@ -52,40 +52,58 @@ def main():
     menu = {}
     key = None
 
-    with open("txtdumpv2.txt") as f:
+    with open("txtdumpv2.txt", "r") as input_file:
+        lines = input_file.readlines()
+
+    unique_lines = []
+    for line in lines:
+        line = line.strip()
+        if line not in unique_lines:
+            unique_lines.append(line)
+
+    with open("outputv2.txt", "w") as output_file:
+        for line in unique_lines:
+            output_file.write(line + "\n")
+
+    with open("outputv2.txt", "r") as f:
+        key = None
         for line in f:
             # remove any leading or trailing whitespace
             line = line.strip()
-            print("input line" + line)
+
             # if the line contains the name of a dining center or location
             if line[0].isupper():
                 # use the name as a key and create an empty dictionary as its value
                 key = line.replace(" ", "_")
-                print("isupper" + key)
-                menu[key] = {}
+                if key not in menu:
+                    menu[key] = {}
 
             # if the line contains a meal period
             elif " - " in line:
                 # split the line into start and end times and meal type
                 start_end, meal_type = line.split("    ")
                 start, end = start_end.split(" - ")
+                meal_type = meal_type.strip()
+
                 # add the start and end times as a dictionary to the current dining center's value
-                if key is not None and meal_type.strip() not in menu[key]:
-                    menu[key][meal_type.strip()] = []
-                menu[key][meal_type.strip()].append(
+                if key is not None and meal_type not in menu[key]:
+                    menu[key][meal_type] = []
+                menu[key][meal_type].append(
                     {"start": start.strip(), "end": end.strip()}
                 )
+
             # if the line contains a location or other attribute
             elif key is not None:
                 # add the attribute to the current dining center's value
-                menu[key][line.replace(" ", "_")] = True
+                attribute = line.replace(" ", "_")
+                if attribute not in menu[key]:
+                    menu[key][attribute] = True
+        print(menu)
+        with open("output.json", "w") as x:
+            json.dump(menu, x)
 
-    print(menu)
-    with open("output.json", "w") as x:
-        json.dump(menu, x)
-
-    a.close()
-    # os.remove("test.html")
+        a.close()
+        # os.remove("test.html")
 
 
 def webscrape():
