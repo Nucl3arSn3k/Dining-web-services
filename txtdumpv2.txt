@@ -1,35 +1,20 @@
-Douglass Dining Center
-Continental
-7:00 am -
-                    8:00 am
+Danforth Dining Center
 Breakfast
 8:00 am -
                     10:30 am
-Lunch
-11:30 am -
+Brunch
+10:30 am -
                     2:30 pm
-Late Lunch
-2:30 pm -
-                    3:30 pm
-Kosher
-Lunch
-11:30 am -
-                    2:30 pm
-Danforth Dining Center
-Danforth Dining Center
-Lunch
-11:00 am -
-                    1:30 pm
 Dinner
 5:00 pm -
-                    7:00 pm
+                    8:00 pm
 Eastman Dining Center
 Eastman Dining Center
 Breakfast
-7:00 am -
-                    11:30 am
-Lunch
-11:30 am -
+8:00 am -
+                    10:30 am
+Brunch
+10:30 am -
                     2:00 pm
 Late Lunch
 2:00 pm -
@@ -43,50 +28,20 @@ Late Dinner
 The Pit
 The Pit
 All Day
-10:30 am -
+11:00 am -
                     11:00 pm
 Rocky's Sub Shop
 Rocky's Sub Shop
 All Day
 11:00 am -
                     11:00 pm
-Grab &amp; Go
-Grab &amp; Go
-All Day
-8:00 am -
-                    3:00 pm
 Starbucks
 Starbucks
-Spring Standard R-F
-7:30 am -
+Spring Standard Saturday
+9:00 am -
                     1:00 am
-Connections
-Connections
-Standard F
-7:00 am -
-                    3:00 pm
-Peet's Coffee @ Wegmans Hall
-Peet's Coffee @ Wegmans Hall
-Standard M-F
-7:30 am -
-                    2:30 pm
-The Brew @ Simon School
-The Brew @ Simon School
-Standard M-F
-9:30 am -
-                    2:00 pm
 Hillside Market
 Hillside Market
 Spring Standard
 11:00 am -
                     2:00 am
-Faculty Club
-Faculty Club
-Lunch
-11:30 am -
-                    1:30 pm
-California Rollin II
-California Rollin II
-Spring Standard M-F
-11:00 am -
-                    2:00 pm

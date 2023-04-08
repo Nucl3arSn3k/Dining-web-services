@@ -9,7 +9,7 @@ from selenium.webdriver.firefox.options import Options
 import bleach
 import regex
 import os
-
+import time
 import json
 
 import re
@@ -21,16 +21,15 @@ def main():
     index = a.read()
     soup_2 = BeautifulSoup(index, "lxml")
 
-    #handles url extraction
+    # handles url extraction
     link_list = []
-    soup = BeautifulSoup(index, 'html.parser')
+    soup = BeautifulSoup(index, "html.parser")
     S = soup_2.html
-    open_now_links = soup.find_all(class_='open-now-location-link')
+    open_now_links = soup.find_all(class_="open-now-location-link")
     for link in open_now_links:
-        link_list.append(link['href'])
+        link_list.append(link["href"])
         print(link)
 
-    
     # all_text = "".join(S.findAll(text=True)).encode("utf-8")
     """
     for tag in soup_2.find_all():
@@ -57,17 +56,16 @@ def main():
         for x in file:
             x2 = x[:-1]
             contents.append(x2)
-    menu = {}
+    menu = {
+        "timestamp": time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()),
+    }
     key = None
 
     with open("txtdumpv2.txt", "r") as input_file:
         lines = input_file.readlines()
 
-
-    with open("txtdumpv2.txt", "w") as f: #takes out first line
+    with open("txtdumpv2.txt", "w") as f:  # takes out first line
         f.writelines(lines[1:])
-    
-
 
     with open("txtdumpv2.txt", "r") as input_file:
         lines = input_file.readlines()
@@ -83,18 +81,18 @@ def main():
             output_file.write(line + "\n")
 
     dining_names = {
-    "Douglass_Dining_Center",
-    "Danforth_Dining_Center",
-    "Eastman_Dining_Center",
-    "Rocky's_Sub_Shop",
-    "The_Pit",
-    "Grab_&_Go",
-    "Connections",
-    "Peet's_Coffee_@_Wegmans_Hall",
-    "The_Brew_@_Simon_School",
-    "Hillside_Market",
-    "California_Rollin_II",
-}
+        "Douglass_Dining_Center",
+        "Danforth_Dining_Center",
+        "Eastman_Dining_Center",
+        "Rocky's_Sub_Shop",
+        "The_Pit",
+        "Grab_&_Go",
+        "Connections",
+        "Peet's_Coffee_@_Wegmans_Hall",
+        "The_Brew_@_Simon_School",
+        "Hillside_Market",
+        "California_Rollin_II",
+    }
 
     with open("outputv2.txt", "r") as f:
         key = None
@@ -144,7 +142,6 @@ def main():
     os.remove("test.html")
 
 
-
 def webscrape():
     optionsv2 = Options()
     optionsv2.add_argument("--headless")
@@ -152,9 +149,11 @@ def webscrape():
 
     optionsv2.binary = FirefoxBinary(r"C:\Program Files\Mozilla Firefox\firefox.exe")
     browser = webdriver.Firefox(
-        executable_path=r"C:\Program Files (x86)\geckodriver-v0.32.2-win32\geckodriver.exe",
+        executable_path=r"C:\geckodriver-v0.31.0-win64\geckodriver.exe",
         options=optionsv2,
     )
+    # desktop gecko adress C:\Program Files (x86)\geckodriver-v0.32.2-win32\geckodriver.exe
+    # laptop gecko adress C:\geckodriver-v0.31.0-win64\geckodriver.exe
 
     browret = browser.get(url)
     page_source = browser.page_source
@@ -166,9 +165,8 @@ def webscrape():
     f.close()
 
 
-
 def url_extraction():
-    #extractor = URLExtract()
+    # extractor = URLExtract()
     a = open("test.html")
 
     gfg = BeautifulSoup(a, features="lxml")
