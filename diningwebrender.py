@@ -20,9 +20,17 @@ def main():
     a = open("test.html", "r")
     index = a.read()
     soup_2 = BeautifulSoup(index, "lxml")
-    url_list = extract_urls_from_html("test.html")
-    S = soup_2.html
 
+    #handles url extraction
+    link_list = []
+    soup = BeautifulSoup(index, 'html.parser')
+    S = soup_2.html
+    open_now_links = soup.find_all(class_='open-now-location-link')
+    for link in open_now_links:
+        link_list.append(link['href'])
+        print(link)
+
+    
     # all_text = "".join(S.findAll(text=True)).encode("utf-8")
     """
     for tag in soup_2.find_all():
@@ -74,18 +82,37 @@ def main():
         for line in unique_lines:
             output_file.write(line + "\n")
 
+    dining_names = {
+    "Douglass_Dining_Center",
+    "Danforth_Dining_Center",
+    "Eastman_Dining_Center",
+    "Rocky's_Sub_Shop",
+    "The_Pit",
+    "Grab_&_Go",
+    "Connections",
+    "Peet's_Coffee_@_Wegmans_Hall",
+    "The_Brew_@_Simon_School",
+    "Hillside_Market",
+    "California_Rollin_II",
+}
+
     with open("outputv2.txt", "r") as f:
         key = None
+        link_index = 0
         for line in f:
             # remove any leading or trailing whitespace
             line = line.strip()
 
             # if the line contains the name of a dining center or location
-            if line[0].isupper():
+            if line[0].isupper() and line.replace(" ", "_") in dining_names:
                 # use the name as a key and create an empty dictionary as its value
                 key = line.replace(" ", "_")
                 if key not in menu:
                     menu[key] = {}
+                # add the URL for the current dining center to its dictionary
+                if link_index < len(link_list):
+                    menu[key]["url"] = link_list[link_index]
+                    link_index += 1
 
             # if the line contains a meal period
             elif " - " in line:
@@ -107,12 +134,15 @@ def main():
                 attribute = line.replace(" ", "_")
                 if attribute not in menu[key]:
                     menu[key][attribute] = True
-        print(menu)
-        with open("output.json", "w") as x:
-            json.dump(menu, x)
 
-        a.close()
-        # os.remove("test.html")
+    print(menu)
+
+    with open("output.json", "w") as x:
+        json.dump(menu, x)
+
+    a.close()
+    os.remove("test.html")
+
 
 
 def webscrape():
