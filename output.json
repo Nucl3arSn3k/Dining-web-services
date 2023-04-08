@@ -1,5 +1,4 @@
 {
-    "Douglass_Dining": {},
     "Douglass_Dining_Center": {},
     "Continental": {
         "7:00_am_-": true,
@@ -17,17 +16,13 @@
         "2:30_pm_-": true,
         "3:30_pm": true
     },
-    "Dinner": {
-        "5:00_pm_-": true,
-        "8:00_pm": true
-    },
-    "Late_Dinner": {
-        "8:00_pm_-": true,
-        "9:00_pm": true
-    },
+    "Kosher": {},
     "Danforth_Dining_Center": {
         "11:00_am_-": true,
-        "1:30_pm": true,
+        "1:30_pm": true
+    },
+    "Dinner": {
+        "5:00_pm_-": true,
         "7:00_pm": true
     },
     "Eastman_Dining_Center": {
@@ -35,6 +30,9 @@
         "2:00_pm": true,
         "2:00_pm_-": true,
         "5:00_pm": true,
+        "9:00_pm": true
+    },
+    "Late_Dinner": {
         "9:00_pm_-": true,
         "12:00_am": true
     },
@@ -48,12 +46,12 @@
         "3:00_pm": true
     },
     "Starbucks": {},
-    "Spring_2022_R-F": {
+    "Spring_Standard_R-F": {
         "7:30_am_-": true,
         "1:00_am": true
     },
     "Connections": {},
-    "Standard_M-Th": {},
+    "Standard_F": {},
     "Peet's_Coffee_@_Wegmans_Hall": {},
     "Standard_M-F": {},
     "The_Brew_@_Simon_School": {

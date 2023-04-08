@@ -1,4 +1,3 @@
-Douglass Dining
 Douglass Dining Center
 Continental
 7:00 am -
@@ -12,12 +11,10 @@ Lunch
 Late Lunch
 2:30 pm -
                     3:30 pm
-Dinner
-5:00 pm -
-                    8:00 pm
-Late Dinner
-8:00 pm -
-                    9:00 pm
+Kosher
+Lunch
+11:30 am -
+                    2:30 pm
 Danforth Dining Center
 Danforth Dining Center
 Lunch
@@ -60,14 +57,14 @@ All Day
                     3:00 pm
 Starbucks
 Starbucks
-Spring 2022 R-F
+Spring Standard R-F
 7:30 am -
                     1:00 am
 Connections
 Connections
-Standard M-Th
+Standard F
 7:00 am -
-                    9:00 pm
+                    3:00 pm
 Peet's Coffee @ Wegmans Hall
 Peet's Coffee @ Wegmans Hall
 Standard M-F
@@ -85,7 +82,7 @@ Spring Standard
                     2:00 am
 Faculty Club
 Faculty Club
-Standard M-F
+Lunch
 11:30 am -
                     1:30 pm
 California Rollin II

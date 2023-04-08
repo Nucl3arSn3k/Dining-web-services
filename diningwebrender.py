@@ -9,7 +9,7 @@ from selenium.webdriver.firefox.options import Options
 import bleach
 import regex
 import os
-from urlextract import URLExtract
+
 import json
 
 import re
@@ -51,6 +51,15 @@ def main():
             contents.append(x2)
     menu = {}
     key = None
+
+    with open("txtdumpv2.txt", "r") as input_file:
+        lines = input_file.readlines()
+
+
+    with open("txtdumpv2.txt", "w") as f: #takes out first line
+        f.writelines(lines[1:])
+    
+
 
     with open("txtdumpv2.txt", "r") as input_file:
         lines = input_file.readlines()
@@ -111,27 +120,25 @@ def webscrape():
     optionsv2.add_argument("--headless")
     url = "https://dining.rochester.edu/menu-hours/"
 
-    # binary = FirefoxBinary("C:\Program Files\Mozilla Firefox\firefox.exe")
+    optionsv2.binary = FirefoxBinary(r"C:\Program Files\Mozilla Firefox\firefox.exe")
     browser = webdriver.Firefox(
-        executable_path="C:\geckodriver-v0.31.0-win64\geckodriver.exe",
+        executable_path=r"C:\Program Files (x86)\geckodriver-v0.32.2-win32\geckodriver.exe",
         options=optionsv2,
     )
 
-    # driver = webdriver.Firefox(options=optionsv2)
     browret = browser.get(url)
     page_source = browser.page_source
     soup = BeautifulSoup(page_source, "lxml")
     job0 = soup.find(id="timepicker-stage")
-
-    # print(job0)
 
     with open("test.html", "w+") as f:
         f.write(str(job0))
     f.close()
 
 
+
 def url_extraction():
-    extractor = URLExtract()
+    #extractor = URLExtract()
     a = open("test.html")
 
     gfg = BeautifulSoup(a, features="lxml")
