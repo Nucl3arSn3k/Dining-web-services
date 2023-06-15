@@ -149,10 +149,10 @@ def webscrape():
 
     optionsv2.binary = FirefoxBinary(r"C:\Program Files\Mozilla Firefox\firefox.exe")
     browser = webdriver.Firefox(
-        executable_path=r"C:\geckodriver-v0.31.0-win64\geckodriver.exe",
-        options=optionsv2,
+        executable_path="C:\Program Files (x86)\geckodriver-v0.33.0-win32\geckodriver.exe",  # desktop gecko adress C:\Program Files (x86)\geckodriver-v0.32.2-win32\geckodriver.exe
+        options=optionsv2,  # laptop gecko adress C:\geckodriver-v0.31.0-win64\geckodriver.exe
     )
-    # desktop gecko adress C:\Program Files (x86)\geckodriver-v0.32.2-win32\geckodriver.exe
+    # Roc desktop gecko adress C:\Program Files (x86)\geckodriver-v0.32.2-win32\geckodriver.exe
     # laptop gecko adress C:\geckodriver-v0.31.0-win64\geckodriver.exe
 
     browret = browser.get(url)

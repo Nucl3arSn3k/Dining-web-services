@@ -1099,3 +1099,17 @@ WebDriver BiDi listening on ws://127.0.0.1:1530
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Skeletor\\AppData\\Local\\Temp\\rust_mozprofiley5S3gJ\\search.json.mozlz4", (void 0)))
 console.error: ({})
 DevTools listening on ws://127.0.0.1:1530/devtools/browser/0d0a9308-c5da-4b5f-b304-9857309d8408
+1686849212901	geckodriver	INFO	Listening on 127.0.0.1:58476
+1686849215956	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "584 ... 7" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\shred\\AppData\\Local\\Temp\\rust_mozprofile5BmqPI"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1686849216522	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1686849216525	Marionette	INFO	Listening on port 58488
+WebDriver BiDi listening on ws://127.0.0.1:58477
+Read port: 58488
+1686849216772	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:58477/devtools/browser/13d122d1-f65b-4230-ba35-91a834e35586
