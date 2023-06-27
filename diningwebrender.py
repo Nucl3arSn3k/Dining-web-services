@@ -17,10 +17,11 @@ import re
 #
 def main():
     webscrape()
+    
     a = open("test.html", "r")
     index = a.read()
     soup_2 = BeautifulSoup(index, "lxml")
-
+    summer = True
     # handles url extraction
     link_list = []
     soup = BeautifulSoup(index, "html.parser")
@@ -94,44 +95,50 @@ def main():
         "California_Rollin_II",
     }
 
-    with open("outputv2.txt", "r") as f:
-        key = None
-        link_index = 0
-        for line in f:
-            # remove any leading or trailing whitespace
-            line = line.strip()
+    if(summer == True):
+        print("summertime eating schedule")
 
-            # if the line contains the name of a dining center or location
-            if line[0].isupper() and line.replace(" ", "_") in dining_names:
-                # use the name as a key and create an empty dictionary as its value
-                key = line.replace(" ", "_")
-                if key not in menu:
-                    menu[key] = {}
-                # add the URL for the current dining center to its dictionary
-                if link_index < len(link_list):
-                    menu[key]["url"] = link_list[link_index]
-                    link_index += 1
 
-            # if the line contains a meal period
-            elif " - " in line:
-                # split the line into start and end times and meal type
-                start_end, meal_type = line.split("    ")
-                start, end = start_end.split(" - ")
-                meal_type = meal_type.strip()
+    else:
 
-                # add the start and end times as a dictionary to the current dining center's value
-                if key is not None and meal_type not in menu[key]:
-                    menu[key][meal_type] = []
-                menu[key][meal_type].append(
-                    {"start": start.strip(), "end": end.strip()}
-                )
+        with open("outputv2.txt", "r") as f:
+            key = None
+            link_index = 0
+            for line in f:
+                # remove any leading or trailing whitespace
+                line = line.strip()
 
-            # if the line contains a location or other attribute
-            elif key is not None:
-                # add the attribute to the current dining center's value
-                attribute = line.replace(" ", "_")
-                if attribute not in menu[key]:
-                    menu[key][attribute] = True
+                # if the line contains the name of a dining center or location
+                if line[0].isupper() and line.replace(" ", "_") in dining_names:
+                    # use the name as a key and create an empty dictionary as its value
+                    key = line.replace(" ", "_")
+                    if key not in menu:
+                        menu[key] = {}
+                    # add the URL for the current dining center to its dictionary
+                    if link_index < len(link_list):
+                        menu[key]["url"] = link_list[link_index]
+                        link_index += 1
+
+                # if the line contains a meal period
+                elif " - " in line:
+                    # split the line into start and end times and meal type
+                    start_end, meal_type = line.split("    ")
+                    start, end = start_end.split(" - ")
+                    meal_type = meal_type.strip()
+
+                    # add the start and end times as a dictionary to the current dining center's value
+                    if key is not None and meal_type not in menu[key]:
+                        menu[key][meal_type] = []
+                    menu[key][meal_type].append(
+                        {"start": start.strip(), "end": end.strip()}
+                    )
+
+                # if the line contains a location or other attribute
+                elif key is not None:
+                    # add the attribute to the current dining center's value
+                    attribute = line.replace(" ", "_")
+                    if attribute not in menu[key]:
+                        menu[key][attribute] = True
 
     print(menu)
 
@@ -203,6 +210,7 @@ def get_index_positions(list_of_elems, element):
         except ValueError as e:
             break
     return index_pos_list
+
 
 
 if __name__ == "__main__":
